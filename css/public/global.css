@@ -1,0 +1,43 @@
+:root{
+    --ivory:#F7F4ED;
+    --ivory-deep:#EFEAdd;
+    --navy:#202E27;
+    --slate:#5C6F66;
+    --teal:#8B79B8;
+    --teal-soft:#E6E0F4;
+    --lav:#A799CF;
+    --lav-deep:#8B79B8;
+    --line:#DDD6E8;
+    --white:#FFFFFF;
+  }
+
+  *
+  {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  
+  html {
+    scroll-behavior:smooth;
+  }
+  
+  body {
+    background:var(--ivory);
+    color:var(--navy);
+    font-family:'Poppins',sans-serif;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+
+    h1,h2,h3 {
+    font-family:'Lora',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+  }
+
