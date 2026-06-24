@@ -292,3 +292,65 @@
   transform: translateY(-2px);
 }
 
+/* ---------- FB Ads Manager Carousel ---------- */
+
+.ads-carousel {
+  position:relative;
+  margin-bottom:18px;
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--navy);
+}
+
+
+.ads-carousel .carousel-track {
+  display:flex;
+  transition:transform .45s ease;
+}
+
+.ads-carousel .carousel-slide{flex:0 0 100%;position:relative;height:560px;display:flex;align-items:center;justify-content:center;background:#0d1410;}
+.ads-carousel .carousel-slide img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;margin:0 auto;object-fit:contain;}
+
+.ads-carousel .carousel-slide img { 
+  width:100%;
+  display:block;
+  max-height:560px;
+  object-fit:contain;
+  background:#0d1410;
+}
+
+
+.ads-carousel .slide-cap { 
+  position:absolute;
+  left:0;right:0;
+  bottom:0;
+  background:linear-gradient(0deg,rgba(0,0,0,0.65),rgba(0,0,0,0));
+  color:#fff;
+  font-size:0.82rem;
+  padding:18px 16px 10px;
+  font-family:'Poppins',sans-serif;
+}
+
+.ads-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,0.92);color:var(--navy);font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:background .2s;}
+.ads-carousel .carousel-btn:hover{background:#fff;}
+.ads-carousel .carousel-btn.prev{left:12px;}
+.ads-carousel .carousel-btn.next{right:12px;}
+.ads-carousel .carousel-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:2;}
+.ads-carousel .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:background .2s,transform .2s;}
+.ads-carousel .carousel-dots span.active{background:var(--teal);transform:scale(1.25);}
+
+
+@media (max-width:640px){
+  .ads-carousel .carousel-slide{height:320px;}
+  .ads-carousel .carousel-btn{width:32px;height:32px;font-size:1.1rem;}
+}
+
+
+.ads-carousel {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
+}
