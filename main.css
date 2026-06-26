@@ -479,7 +479,7 @@
 }
 
 
-/* Calendly book me now */
+
 /* Calendly book me now */
 .calendly-section{padding:70px 0;border-top:1px solid var(--line);}
 
@@ -508,4 +508,36 @@
 @media (max-width:600px){
   .calendly-section{padding:50px 0;}
   .calendly-inline-widget{height:600px;}
+}
+
+/* Notelist in JFM Card */
+.case-note-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-note-list li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.case-note-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 700;
 }

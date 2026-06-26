@@ -31,31 +31,25 @@ document.querySelectorAll(".ads-carousel").forEach((root) => {
 
   let slides = Array.from(track.children);
   let idx = 1;
+  let isAnimating = false;
 
-  // Clear existing dots
   dotsWrap.innerHTML = "";
 
-  // Create dots
   for (let i = 0; i < slides.length - 2; i++) {
     const dot = document.createElement("span");
-
     if (i === 0) dot.classList.add("active");
-
     dot.addEventListener("click", () => {
+      if (isAnimating) return;
       idx = i + 1;
       update();
     });
-
     dotsWrap.appendChild(dot);
   }
 
   const dots = Array.from(dotsWrap.children);
 
   function update(animate = true) {
-    track.style.transition = animate
-      ? "transform .45s ease"
-      : "none";
-
+    track.style.transition = animate ? "transform .45s ease" : "none";
     track.style.transform = `translateX(-${idx * 100}%)`;
 
     const realIndex =
@@ -65,17 +59,19 @@ document.querySelectorAll(".ads-carousel").forEach((root) => {
         ? 0
         : idx - 1;
 
-    dots.forEach((d, i) =>
-      d.classList.toggle("active", i === realIndex)
-    );
+    dots.forEach((d, i) => d.classList.toggle("active", i === realIndex));
+
+    if (animate) isAnimating = true;
   }
 
   function next() {
+    if (isAnimating) return;
     idx++;
     update();
   }
 
   function prev() {
+    if (isAnimating) return;
     idx--;
     update();
   }
@@ -84,28 +80,35 @@ document.querySelectorAll(".ads-carousel").forEach((root) => {
   root.querySelector(".prev").addEventListener("click", prev);
 
   track.addEventListener("transitionend", () => {
+    isAnimating = false;
+
     if (idx === slides.length - 1) {
       idx = 1;
-      update(false);
+      // force reflow before snapping, so the "no transition" jump is actually rendered
+      track.style.transition = "none";
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      track.getBoundingClientRect(); // force reflow
     }
 
     if (idx === 0) {
       idx = slides.length - 2;
-      update(false);
+      track.style.transition = "none";
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      track.getBoundingClientRect(); // force reflow
     }
   });
 
   let autoplay = setInterval(next, 5000);
 
-  root.addEventListener("mouseenter", () => {
-    clearInterval(autoplay);
-  });
-
+  root.addEventListener("mouseenter", () => clearInterval(autoplay));
   root.addEventListener("mouseleave", () => {
     autoplay = setInterval(next, 5000);
   });
 
-  update(false);
+  // initial position, also needs the reflow guard
+  track.style.transition = "none";
+  track.style.transform = `translateX(-${idx * 100}%)`;
+  track.getBoundingClientRect();
 });
 
 // Calendly
