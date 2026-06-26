@@ -477,3 +477,35 @@
   color: var(--text-dark, #2b2b2b);
   font-weight: 600;
 }
+
+
+/* Calendly book me now */
+/* Calendly book me now */
+.calendly-section{padding:70px 0;border-top:1px solid var(--line);}
+
+.calendly-block{
+  border:1px solid var(--line);border-radius:16px;background:var(--white);
+  padding:32px;text-align:center;
+}
+
+.calendly-block .case-client{display:block;margin-bottom:6px;}
+
+.calendly-block h2{font-size:clamp(1.8rem,3.2vw,2.4rem);color:var(--navy);margin-bottom:14px;}
+
+.calendly-block .lede{
+  color:var(--slate);font-size:1.02rem;
+  max-width:480px;margin:0 auto 28px;
+}
+
+.calendly-inline-widget{
+  min-width:320px;height:700px;border-radius:10px;overflow:hidden;
+}
+
+@media (max-width:760px){
+  .calendly-block{padding:22px;}
+}
+
+@media (max-width:600px){
+  .calendly-section{padding:50px 0;}
+  .calendly-inline-widget{height:600px;}
+}

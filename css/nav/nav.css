@@ -49,8 +49,7 @@ nav .wrap {
 }
 
 .brand-logo {
-  font-family: 'Lora', serif;
-  font-weight: 700;
+  font-size: 0.95rem;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -60,6 +59,9 @@ nav .wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-indent: 1px; 
   color: var(--navy);
   transition: all 0.3s ease;
 }

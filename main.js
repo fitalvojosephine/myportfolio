@@ -107,3 +107,11 @@ document.querySelectorAll(".ads-carousel").forEach((root) => {
 
   update(false);
 });
+
+// Calendly
+(function loadCalendlyWidget() {
+  const script = document.createElement('script');
+  script.src = 'https://assets.calendly.com/assets/external/widget.js';
+  script.async = true;
+  document.body.appendChild(script);
+})();
